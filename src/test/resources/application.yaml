@@ -1,0 +1,17 @@
+spring: 
+   datasource:
+      username: museums
+      password: museums
+      url: jdbc:mysql://localhost:3306/museums
+   
+   jpa:
+      hibernate:
+         ddl-auto: none
+      show-sql: true
+      defer-datasource-initialization: true
+      
+   sql: 
+      init:
+         mode: always
+         #change to 'always' to drop tables and recreate
+         #change to 'never' to keep tables
