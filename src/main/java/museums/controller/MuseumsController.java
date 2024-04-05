@@ -16,20 +16,23 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import lombok.extern.slf4j.Slf4j;
 import museums.controller.model.MuseumsData;
+import museums.controller.model.MuseumsData.MuseumExhibition;
+import museums.controller.model.MuseumsData.MuseumInstallation;
 import museums.service.MuseumsService;
 
+@RestController
+@RequestMapping("/museum")
+@Slf4j
 public class MuseumsController {
-	@RestController
-	@RequestMapping("/pet_store")
-	@Slf4j
+
 	public class StoreController {
 		@Autowired
 		private MuseumsService museumsService;
 
 		@PostMapping()
 		@ResponseStatus(code = HttpStatus.CREATED)
-		public MuseumsData insertPetStore(@RequestBody MuseumsData museumsData) {
-			log.info("Creating the museum {}", museumData);
+		public MuseumsData insertMuseum(@RequestBody MuseumsData museumsData) {
+			log.info("Creating the museum {}", museumsData);
 			return museumsService.saveMuseum(museumsData);
 		}
 
@@ -54,8 +57,7 @@ public class MuseumsController {
 				@RequestBody MuseumExhibition museumExhibition) {
 			log.info("Creating exhibition {} for museum with ID = {}", museumExhibition, museumId);
 			return museumsService.saveExhibition(museumExhibition);
-		} 
-
+		}
 
 		@GetMapping()
 		public List<MuseumsData> retrieveAllMuseums() {
@@ -77,6 +79,5 @@ public class MuseumsController {
 			return Map.of("message", "Museum with ID = " + museumId + " has been deleted");
 		}
 	}
-
 
 }

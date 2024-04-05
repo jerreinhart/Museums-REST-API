@@ -56,7 +56,6 @@ public class MuseumsData {
 		nameOfExhibition = exhibition.getNameOfExhibition();
 		ownerOfExhibition = exhibition.getOwnerOfExhibition();
 		typeOfExhibition = exhibition.getTypeOfExhibition();
-		dateOfExhibition = exhibition.getDateOfExhibition();
 	}
 	}
 	

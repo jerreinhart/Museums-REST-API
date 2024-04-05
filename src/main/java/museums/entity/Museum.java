@@ -33,7 +33,7 @@ public class Museum {
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
 	@ManyToMany(cascade = CascadeType.PERSIST)
-	@JoinTable(name = "museum_exhibition", joinColums = @JoinColumn(name = "museum_id"), inverseJoinColumns = @JoinColumn(name = "exhibition_id"))
+	@JoinTable(name = "museum_exhibition", joinColumns = @JoinColumn(name = "museum_id"), inverseJoinColumns = @JoinColumn(name = "exhibition_id"))
 	
 	private Set<Exhibition> exhibitions = new HashSet<>();
 	

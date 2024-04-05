@@ -23,7 +23,6 @@ public class Exhibition {
 	private String nameOfExhibition;	
 	private String ownerOfExhibition;
 	private String typeOfExhibition;
-	private Date dateOfExhibition;
 
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude

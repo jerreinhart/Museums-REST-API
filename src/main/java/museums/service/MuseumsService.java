@@ -1,6 +1,5 @@
 package museums.service;
 
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -58,7 +57,7 @@ public class MuseumsService {
 	private Museum findOrCreateMuseum(Long museumId) {
 		Museum museum;
 
-		if (Objects.isNull(museum)) {
+		if (Objects.isNull(museumId)) {
 			museum = new Museum();
 		} else {
 			museum = findMuseumById(museumId);
@@ -68,12 +67,12 @@ public class MuseumsService {
 	}
 
 	private Museum findMuseumById(Long museumId) {
-		return museumId.findById(museumId)
+		return museumDao.findById(museumId)
 				.orElseThrow(() -> new NoSuchElementException("Museum with ID = " + museumId + " does not exist"));
 	}
 
 	@Transactional(readOnly = false)
-	public MuseumExhibition saveExhibit(MuseumExhibition exhibitionData) {
+	public MuseumExhibition saveExhibition(MuseumExhibition exhibitionData) {
 		Long exhibitionId = exhibitionData.getExhibitionId();
 		Exhibition exhibition = findOrCreateExhibition(exhibitionId, exhibitionData.getNameOfExhibition());
 
@@ -86,7 +85,6 @@ public class MuseumsService {
 			exhibition.setNameOfExhibition(exhibitionData.getNameOfExhibition());
 			exhibition.setOwnerOfExhibition(exhibition.getOwnerOfExhibition());
 			exhibition.setTypeOfExhibition(exhibition.getTypeOfExhibition());
-			exhibition.setDateOfExhibition(exhibition.getDateOfExhibition());
 		
 		}
 

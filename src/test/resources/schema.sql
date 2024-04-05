@@ -28,7 +28,6 @@ CREATE TABLE exhibition (
 	name_of_exhibition varchar(250) NOT NULL,
 	owner_of_exhibition varchar(250) NOT NULL
 	type_of_exhibition varchar(250) NOT NULL
-	date_of_exhibition date NOT NULL
 	PRIMARY KEY (exhibition_id),
 );
 
