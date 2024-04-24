@@ -12,14 +12,14 @@ VALUES
 ('Curse of the Pharoah', 'Society of Egyptologists', 'Culture'),
 ('The DaVinci Code', 'Rich A.F. Wealthy', 'Art'),
 ('Pioneer Power', 'New England Historical Society', 'Technology'),
-('Ice Berg Right Ahead', 'The Star Liner Society for Historic Preservation', 'Event'),
-('Heads Up', 'Sir Weird Guy III', 'Anatomy');
+('Ice Berg Right Ahead', 'The Star Liner Society for Historic Preservation', 'Historical Event'),
+('Heads Up', 'Sir Weird Guy III', 'Human Anatomy');
 
 
 INSERT INTO installation (museum_id, name_of_installation, type_of_installation)
 VALUES
 ('1', 'The Tokugawa Shogunate', 'History'),
 ('2', 'Mesopotamian Pottery', 'Artifacts'),
-('3', 'The Triangle Shirtwaist Factory Fire', 'Event'),
+('3', 'The Triangle Shirtwaist Factory Fire', 'Historical Event'),
 ('4', 'The Jurassic Era', 'Paleontology'),
 ('5', 'Homo Erectus', 'Anthropology');

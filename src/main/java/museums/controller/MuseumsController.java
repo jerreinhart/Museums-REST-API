@@ -25,59 +25,56 @@ import museums.service.MuseumsService;
 @Slf4j
 public class MuseumsController {
 
-	public class StoreController {
-		@Autowired
-		private MuseumsService museumsService;
+	@Autowired
+	private MuseumsService museumsService;
 
-		@PostMapping()
-		@ResponseStatus(code = HttpStatus.CREATED)
-		public MuseumsData insertMuseum(@RequestBody MuseumsData museumsData) {
-			log.info("Creating the museum {}", museumsData);
-			return museumsService.saveMuseum(museumsData);
-		}
-
-		@PutMapping("/{museumId}")
-		public MuseumsData updateMuseum(@PathVariable Long museumId, @RequestBody MuseumsData museumsData) {
-			museumsData.setMuseumId(museumId);
-			log.info("Updating museum{}", museumsData);
-			return museumsService.saveMuseum(museumsData);
-		}
-
-		@PostMapping("/{museumId}/installation")
-		@ResponseStatus(code = HttpStatus.CREATED)
-		public MuseumInstallation insertInstallation(@PathVariable Long museumId,
-				@RequestBody MuseumInstallation museumInstallation) {
-			log.info("Creating installation {} for museum with ID = {}", museumInstallation, museumId);
-			return museumsService.saveInstallation(museumId, museumInstallation);
-		}
-
-		@PostMapping("/{museumId}/exhibition")
-		@ResponseStatus(code = HttpStatus.CREATED)
-		public MuseumExhibition insertExhibition(@PathVariable Long museumId,
-				@RequestBody MuseumExhibition museumExhibition) {
-			log.info("Creating exhibition {} for museum with ID = {}", museumExhibition, museumId);
-			return museumsService.saveExhibition(museumExhibition);
-		}
-
-		@GetMapping()
-		public List<MuseumsData> retrieveAllMuseums() {
-			log.info("Retrieve all museums.");
-			return museumsService.retrieveAllMuseums();
-		}
-
-		@GetMapping("/{museumId}")
-		public MuseumsData retrieveMuseumById(@PathVariable Long museumId) {
-			log.info("Retrieving museum by ID = {}", museumId);
-			return museumsService.retrieveMuseumById(museumId);
-		}
-
-		@DeleteMapping("/{museumId}")
-		public Map<String, String> deleteMuseumById(@PathVariable Long museumId) {
-			log.info("Deleting museum with ID = {}", museumId);
-			museumsService.deleteMuseumById(museumId);
-
-			return Map.of("message", "Museum with ID = " + museumId + " has been deleted");
-		}
+	@PostMapping()
+	@ResponseStatus(code = HttpStatus.CREATED)
+	public MuseumsData insertMuseum(@RequestBody MuseumsData museumsData) {
+		log.info("Creating the museum {}", museumsData);
+		return museumsService.saveMuseum(museumsData);
 	}
 
+	@PutMapping("/{museumId}")
+	public MuseumsData updateMuseum(@PathVariable Long museumId, @RequestBody MuseumsData museumsData) {
+		museumsData.setMuseumId(museumId);
+		log.info("Updating museum{}", museumsData);
+		return museumsService.saveMuseum(museumsData);
+	}
+
+	@PostMapping("/{museumId}/installation")
+	@ResponseStatus(code = HttpStatus.CREATED)
+	public MuseumInstallation insertInstallation(@PathVariable Long museumId,
+			@RequestBody MuseumInstallation museumInstallation) {
+		log.info("Creating installation {} for museum with ID = {}", museumInstallation, museumId);
+		return museumsService.saveInstallation(museumId, museumInstallation);
+	}
+
+	@PostMapping("/{museumId}/exhibition")
+	@ResponseStatus(code = HttpStatus.CREATED)
+	public MuseumExhibition insertExhibition(@PathVariable Long museumId,
+			@RequestBody MuseumExhibition museumExhibition) {
+		log.info("Creating exhibition {} for museum with ID = {}", museumExhibition, museumId);
+		return museumsService.saveExhibition(museumExhibition);
+	}
+
+	@GetMapping()
+	public List<MuseumsData> retrieveAllMuseums() {
+		log.info("Retrieve all museums.");
+		return museumsService.retrieveAllMuseums();
+	}
+
+	@GetMapping("/{museumId}")
+	public MuseumsData retrieveMuseumById(@PathVariable Long museumId) {
+		log.info("Retrieving museum by ID = {}", museumId);
+		return museumsService.retrieveMuseumById(museumId);
+	}
+
+	@DeleteMapping("/{museumId}")
+	public Map<String, String> deleteMuseumById(@PathVariable Long museumId) {
+		log.info("Deleting museum with ID = {}", museumId);
+		museumsService.deleteMuseumById(museumId);
+
+		return Map.of("message", "Museum with ID = " + museumId + " has been deleted");
+	}
 }
